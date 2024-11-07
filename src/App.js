@@ -63,6 +63,9 @@ const App = () => {
             const xfdfString = demoXFDFString;
             await annotManager.importAnnotations(xfdfString);
             video.updateAnnotationsToTime(0);
+            console.time('getAnnotationCanvasesWithIntervals took:');
+            await video.getAnnotationCanvasesWithIntervals();
+            console.timeEnd('getAnnotationCanvasesWithIntervals took:');
           },
           { once: true },
         );
